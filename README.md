@@ -1,5 +1,7 @@
 # 密林 — Un jour dans la jungle
 
+En ligne : https://valakama.github.io/akirawebsite/
+
 Site-expérience : une journée dans la jungle, de l'aube à la nuit, racontée au scroll.
 
 ## Lancer en local
