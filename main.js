@@ -10,10 +10,10 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-  // Sans librairies (CDN bloqué), le site reste lisible.
+  // Si les librairies n'ont pas pu se charger, on bascule sur la mise en page sans JavaScript.
   if (!gsap || !ScrollTrigger) {
     root.classList.remove('is-loading', 'js');
-    $$('img[data-srcset]').forEach((img) => (img.srcset = img.dataset.srcset));
+    $$('img[data-srcset]').forEach((img) => { img.srcset = img.dataset.srcset; img.removeAttribute('data-srcset'); });
     return;
   }
 
@@ -268,11 +268,6 @@
       img.removeAttribute('data-srcset');
       // Décodage anticipé : évite un à-coup quand la scène s'affiche pour la première fois
       img.decode?.().catch(() => {});
-    });
-    $$('img[data-src]').forEach((img) => {
-      img.decoding = 'async';
-      img.src = img.dataset.src;
-      img.removeAttribute('data-src');
     });
     petals.load();
   }

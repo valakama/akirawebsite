@@ -2,6 +2,13 @@
    密林 — Un jour dans la jungle
    ========================================================== */
 
+/* Polices hébergées sur le site, réduites aux caractères utilisés (tools/subset_fonts.py).
+   Licence SIL Open Font License : Dela Gothic One, Anton, IBM Plex Mono. */
+@font-face { font-family: "Dela Gothic One"; src: url("assets/fonts/dela-gothic-one.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Anton"; src: url("assets/fonts/anton.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("assets/fonts/ibm-plex-mono-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("assets/fonts/ibm-plex-mono-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+
 :root {
   --ink: #0e0f0c;
   --paper: #efe8d8;
@@ -314,7 +321,7 @@ html.js .scene--1, html.js .scene--2, html.js .scene--3 { visibility: hidden; }
 :focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
 
 @media (prefers-reduced-motion: reduce) {
-  .mist i, .hero__scroll::after, .fx__layer img { animation: none; }
+  .mist i, .hero__scroll::after { animation: none; }
   .col, .col__media img { transition: none; }
 }
 
@@ -477,3 +484,21 @@ html.js .scene--1, html.js .scene--2, html.js .scene--3 { visibility: hidden; }
 /* Japonais : texte courant un peu plus aéré */
 html[lang="ja"] .chapter__txt, html[lang="ja"] .palette__lede { line-height: 1.9; letter-spacing: .04em; }
 html[lang="ja"] .manifesto__text { line-height: 1.15; max-width: 14em; }
+
+/* ==========================================================
+   Secours sans JavaScript (ou si un script échoue) :
+   les scènes s'empilent et se lisent comme une page classique
+   ========================================================== */
+html:not(.js) .stage { height: auto; }
+html:not(.js) .stage__view { position: relative; height: auto; overflow: visible; padding-top: 100vh; }
+html:not(.js) .scene { position: relative; height: 100vh; }
+html:not(.js) .scene img[data-srcset] { display: none; }
+html:not(.js) .fx, html:not(.js) .cross, html:not(.js) .petals, html:not(.js) .fireflies,
+html:not(.js) .halftone, html:not(.js) .hud__lang, html:not(.js) .hero__scroll { display: none; }
+html:not(.js) .chapter { bottom: auto; }
+html:not(.js) .chapter:nth-of-type(1) { top: calc(100vh + 30vh); }
+html:not(.js) .chapter:nth-of-type(2) { top: calc(200vh + 30vh); }
+html:not(.js) .chapter:nth-of-type(3) { top: calc(300vh + 30vh); }
+html:not(.js) .chapter:nth-of-type(4) { top: calc(400vh + 30vh); }
+html:not(.js) .chapter__fr { --band: 1; }
+html:not(.js) .hero { height: 100vh; background: var(--ink) url("assets/scenes/aube-1456.webp") center / cover; }

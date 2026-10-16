@@ -31,16 +31,16 @@
   <meta name="twitter:image" content="https://valakama.github.io/akirawebsite/assets/og.jpg" />
   <script>document.documentElement.classList.add('js'); history.scrollRestoration = 'manual';</script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Dela+Gothic+One&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/dela-gothic-one.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/anton.woff2" crossorigin />
   <link rel="preload" as="image" href="assets/scenes/aube-1456.webp" imagesrcset="assets/scenes/aube-900.webp 900w, assets/scenes/aube-1456.webp 1456w, assets/scenes/aube-2000.webp 2000w" imagesizes="max(100vw, 178vh)" fetchpriority="high" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=202610162332" />
 
-  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
-  <script defer src="main.js"></script>
+  <!-- GSAP 3.13.0, ScrollTrigger 3.13.0, Lenis 1.1.20 : hébergés sur le site (aucun service tiers) -->
+  <script defer src="vendor/gsap.min.js"></script>
+  <script defer src="vendor/ScrollTrigger.min.js"></script>
+  <script defer src="vendor/lenis.min.js"></script>
+  <script defer src="main.js?v=202610162332"></script>
 </head>
 <body>
 
@@ -49,7 +49,7 @@
     <div class="loader__panel loader__panel--top"></div>
     <div class="loader__panel loader__panel--bottom"></div>
     <div class="loader__content">
-      <p class="loader__warn"><span class="jp">警告</span> <span data-i18n="loaderWarn">Zone restreinte · 07</span></p>
+      <p class="loader__warn"><span class="jp" lang="ja">警告</span> <span data-i18n="loaderWarn">Zone restreinte · 07</span></p>
       <p class="loader__title">ジャングル</p>
       <div class="loader__meta">
         <span>SYS.BOOT — 密林 — 一日</span>
@@ -61,7 +61,7 @@
 
   <!-- HUD -->
   <header class="hud">
-    <a class="hud__logo" href="#top"><span class="jp">密林</span><span>Mitsurin</span></a>
+    <a class="hud__logo" href="#top"><span class="jp" lang="ja">密林</span><span>Mitsurin</span></a>
     <p class="hud__center">一日 <span>/ <span data-i18n="tagline">Un jour dans la jungle</span></span></p>
     <nav class="hud__lang" aria-label="Langue"><button type="button" data-lang="fr" lang="fr">FR</button><i>/</i><button type="button" data-lang="en" lang="en">EN</button><i>/</i><button type="button" data-lang="ja" lang="ja">日本</button></nav>
 
@@ -102,18 +102,21 @@
         <div class="scene scene--1">
           <div class="scene__inner">
             <img data-srcset="assets/scenes/midi-900.webp 900w, assets/scenes/midi-1456.webp 1456w, assets/scenes/midi-2000.webp 2000w" sizes="max(100vw, 178vh)" alt="La jungle à midi, flamboyants rouges au-dessus d'un bassin de nénuphars" data-i18n-alt="altMidi" />
+            <noscript><img src="assets/scenes/midi-1456.webp" alt="La jungle à midi, flamboyants rouges au-dessus d'un bassin de nénuphars" /></noscript>
           </div>
           <div class="scene__shade"></div>
         </div>
         <div class="scene scene--2">
           <div class="scene__inner">
             <img data-srcset="assets/scenes/crepuscule-900.webp 900w, assets/scenes/crepuscule-1456.webp 1456w, assets/scenes/crepuscule-2000.webp 2000w" sizes="max(100vw, 178vh)" alt="La jungle au crépuscule, soleil couchant sur l'étang, flamants roses et girafes en contre-jour" data-i18n-alt="altCrep" />
+            <noscript><img src="assets/scenes/crepuscule-1456.webp" alt="La jungle au crépuscule, soleil couchant sur l'étang, flamants roses et girafes en contre-jour" /></noscript>
           </div>
           <div class="scene__shade"></div>
         </div>
         <div class="scene scene--3">
           <div class="scene__inner">
             <img data-srcset="assets/scenes/nuit-900.webp 900w, assets/scenes/nuit-1456.webp 1456w, assets/scenes/nuit-2000.webp 2000w" sizes="max(100vw, 178vh)" alt="La jungle la nuit, pleine lune, lucioles et champignons lumineux" data-i18n-alt="altNuit" />
+            <noscript><img src="assets/scenes/nuit-1456.webp" alt="La jungle la nuit, pleine lune, lucioles et champignons lumineux" /></noscript>
             <canvas class="fireflies" aria-hidden="true"></canvas>
           </div>
           <div class="scene__shade"></div>
@@ -138,37 +141,37 @@
 
         <!-- Hero -->
         <div class="hero">
-          <h1 class="hero__title" aria-label="Jungle">ジャングル</h1>
+          <h1 class="hero__title" lang="ja">ジャングル</h1>
           <div class="hero__meta">
-          <p class="hero__warn"><span class="jp">警告</span> <span data-i18n="heroWarn">Zone 07 — Accès restreint</span></p>
-          <p class="hero__sub"><span class="jp">密林</span> <span data-i18n="heroSub">Une journée dans la jungle</span> <span class="hero__year">二〇二六</span></p>
-          <p class="hero__tag tate">夜明けから夜まで</p>
-          <p class="hero__scroll"><span>スクロール</span> Scroll</p>
+          <p class="hero__warn"><span class="jp" lang="ja">警告</span> <span data-i18n="heroWarn">Zone 07 — Accès restreint</span></p>
+          <p class="hero__sub"><span class="jp" lang="ja">密林</span> <span data-i18n="heroSub">Une journée dans la jungle</span> <span class="hero__year">二〇二六</span></p>
+          <p class="hero__tag tate" lang="ja">夜明けから夜まで</p>
+          <p class="hero__scroll"><span lang="ja">スクロール</span> Scroll</p>
           </div>
         </div>
 
         <!-- Chapitres -->
         <article class="chapter">
-          <p class="chapter__time">第一章 · 05:40</p>
-          <h2 class="chapter__jp">夜明け</h2>
+          <p class="chapter__time"><span lang="ja">第一章</span> · 05:40</p>
+          <h2 class="chapter__jp" lang="ja">夜明け</h2>
           <p class="chapter__fr"><span class="chapter__fr-t" data-i18n="n0">Aube</span></p>
           <p class="chapter__txt" data-i18n="t0">La brume se lève sur le bassin. Un flamant guette le premier rayon, les girafes sortent du rose.</p>
         </article>
         <article class="chapter">
-          <p class="chapter__time">第二章 · 12:00</p>
-          <h2 class="chapter__jp">真昼</h2>
+          <p class="chapter__time"><span lang="ja">第二章</span> · 12:00</p>
+          <h2 class="chapter__jp" lang="ja">真昼</h2>
           <p class="chapter__fr"><span class="chapter__fr-t" data-i18n="n1">Midi</span></p>
           <p class="chapter__txt" data-i18n="t1">Le soleil tombe à pic. Les flamboyants s'embrasent, la canopée bourdonne, l'eau garde la fraîcheur.</p>
         </article>
         <article class="chapter">
-          <p class="chapter__time">第三章 · 18:30</p>
-          <h2 class="chapter__jp">黄昏</h2>
+          <p class="chapter__time"><span lang="ja">第三章</span> · 18:30</p>
+          <h2 class="chapter__jp" lang="ja">黄昏</h2>
           <p class="chapter__fr"><span class="chapter__fr-t" data-i18n="n2">Crépuscule</span></p>
           <p class="chapter__txt" data-i18n="t2">Contre-jour. Tout devient silhouette, l'étang avale le soleil et le renvoie en or.</p>
         </article>
         <article class="chapter">
-          <p class="chapter__time">第四章 · 23:50</p>
-          <h2 class="chapter__jp">夜</h2>
+          <p class="chapter__time"><span lang="ja">第四章</span> · 23:50</p>
+          <h2 class="chapter__jp" lang="ja">夜</h2>
           <p class="chapter__fr"><span class="chapter__fr-t" data-i18n="n3">Nuit</span></p>
           <p class="chapter__txt" data-i18n="t3">La lune prend le relais. Les lucioles s'allument une à une, les champignons respirent en bleu.</p>
         </article>
@@ -182,35 +185,35 @@
         <div class="ticker ticker--black"><div class="ticker__track"><span data-i18n="tickBlack">警告 ・ Zone restreinte ・ 密林 ・ Projet Jungle ・ 第07区 ・ </span><span data-i18n="tickBlack">警告 ・ Zone restreinte ・ 密林 ・ Projet Jungle ・ 第07区 ・ </span></div></div>
         <div class="ticker ticker--red"><div class="ticker__track"><span data-i18n="tickRed">密林 ・ Mitsurin ・ ジャングル ・ Un jour dans la jungle ・ 夜明けから夜まで ・ </span><span data-i18n="tickRed">密林 ・ Mitsurin ・ ジャングル ・ Un jour dans la jungle ・ 夜明けから夜まで ・ </span></div></div>
       </div>
-      <p class="label"><span class="jp">密林は眠らない</span> — <span data-i18n="manifestoLabel">Manifeste</span></p>
+      <p class="label"><span class="jp" lang="ja">密林は眠らない</span> — <span data-i18n="manifestoLabel">Manifeste</span></p>
       <p class="manifesto__text" data-i18n-html="manifesto">La jungle ne dort jamais. Elle change seulement de <em>couleur</em>, du rose de l'aube au bleu des lucioles, en passant par le <em>feu</em> de midi et l'or du soir.</p>
     </section>
 
     <!-- PALETTE -->
     <section class="palette">
       <header class="palette__head">
-        <h2 class="palette__title"><span class="jp">四つの色</span> <span data-i18n="paletteTitle">Quatre couleurs</span></h2>
+        <h2 class="palette__title"><span class="jp" lang="ja">四つの色</span> <span data-i18n="paletteTitle">Quatre couleurs</span></h2>
         <p class="palette__lede" data-i18n="paletteLede">Quatre lumières, une seule jungle. Survole pour ouvrir.</p>
       </header>
       <ul class="cols">
         <li class="col">
           <div class="col__media"><img src="assets/scenes/aube-900.webp" alt="" loading="lazy" decoding="async" style="object-position: 30% 60%" /></div>
-          <div class="col__meta"><span class="col__time">05:40</span><span class="col__jp">夜明け</span><span class="col__fr" data-i18n="n0">Aube</span></div>
+          <div class="col__meta"><span class="col__time">05:40</span><span class="col__jp" lang="ja">夜明け</span><span class="col__fr" data-i18n="n0">Aube</span></div>
           <div class="swatches"><i style="--s:#f4a6a0"></i><i style="--s:#e9c3b5"></i><i style="--s:#7c9a6b"></i><i style="--s:#3e4a52"></i></div>
         </li>
         <li class="col">
           <div class="col__media"><img src="assets/scenes/midi-900.webp" alt="" loading="lazy" decoding="async" style="object-position: 60% 40%" /></div>
-          <div class="col__meta"><span class="col__time">12:00</span><span class="col__jp">真昼</span><span class="col__fr" data-i18n="n1">Midi</span></div>
+          <div class="col__meta"><span class="col__time">12:00</span><span class="col__jp" lang="ja">真昼</span><span class="col__fr" data-i18n="n1">Midi</span></div>
           <div class="swatches"><i style="--s:#ff4a2b"></i><i style="--s:#f08a3c"></i><i style="--s:#8fbf5a"></i><i style="--s:#1f4d3a"></i></div>
         </li>
         <li class="col">
           <div class="col__media"><img src="assets/scenes/crepuscule-900.webp" alt="" loading="lazy" decoding="async" style="object-position: 45% 50%" /></div>
-          <div class="col__meta"><span class="col__time">18:30</span><span class="col__jp">黄昏</span><span class="col__fr" data-i18n="n2">Crépuscule</span></div>
+          <div class="col__meta"><span class="col__time">18:30</span><span class="col__jp" lang="ja">黄昏</span><span class="col__fr" data-i18n="n2">Crépuscule</span></div>
           <div class="swatches"><i style="--s:#ff8a3d"></i><i style="--s:#f25c3b"></i><i style="--s:#6b2a4a"></i><i style="--s:#24161c"></i></div>
         </li>
         <li class="col">
           <div class="col__media"><img src="assets/scenes/nuit-900.webp" alt="" loading="lazy" decoding="async" style="object-position: 15% 75%" /></div>
-          <div class="col__meta"><span class="col__time">23:50</span><span class="col__jp">夜</span><span class="col__fr" data-i18n="n3">Nuit</span></div>
+          <div class="col__meta"><span class="col__time">23:50</span><span class="col__jp" lang="ja">夜</span><span class="col__fr" data-i18n="n3">Nuit</span></div>
           <div class="swatches"><i style="--s:#5ff2d6"></i><i style="--s:#c8e8ff"></i><i style="--s:#2a6bd1"></i><i style="--s:#0d1b3d"></i></div>
         </li>
       </ul>
@@ -219,10 +222,10 @@
 
   <!-- FIN -->
   <footer class="outro">
-    <p class="label"><span class="jp">終わり</span> — <span data-i18n="outroLabel">Fin de la journée</span></p>
-    <p class="outro__title" aria-label="Oyasumi">おやすみ</p>
+    <p class="label"><span class="jp" lang="ja">終わり</span> — <span data-i18n="outroLabel">Fin de la journée</span></p>
+    <p class="outro__title" lang="ja">おやすみ</p>
     <p class="outro__sub" data-i18n="outroSub">Bonne nuit</p>
-    <button class="outro__again" type="button"><span class="jp">もう一度</span> ↑ <span data-i18n="again">Recommencer</span></button>
+    <button class="outro__again" type="button"><span class="jp" lang="ja">もう一度</span> ↑ <span data-i18n="again">Recommencer</span></button>
     <div class="ticker ticker--red ticker--outro" aria-hidden="true"><div class="ticker__track"><span data-i18n="tickOutro">おやすみ ・ Bonne nuit ・ 密林 ・ 終わり ・ Fin ・ </span><span data-i18n="tickOutro">おやすみ ・ Bonne nuit ・ 密林 ・ 終わり ・ Fin ・ </span></div></div>
     <div class="outro__credits"><span>© 2026 密林 Mitsurin</span><span data-i18n="tagline">Un jour dans la jungle</span></div>
   </footer>
