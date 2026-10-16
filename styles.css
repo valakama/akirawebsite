@@ -8,7 +8,7 @@
   --red: #e3001b;              /* rouge Akira */
   --accent: #e3001b;            /* animé par chapitre */
   --f-jp: "Dela Gothic One", sans-serif;
-  --f-display: "Anton", "Impact", sans-serif;
+  --f-display: "Anton", "Dela Gothic One", "Impact", sans-serif;
   --f-mono: "IBM Plex Mono", ui-monospace, monospace;
   --gutter: clamp(16px, 2.4vw, 36px);
   --ease: cubic-bezier(.16, 1, .3, 1);
@@ -96,7 +96,7 @@ html.js .loader {
 .hud__logo .jp { font-size: 18px; }
 .hud__center { top: var(--gutter); left: 50%; transform: translateX(-50%); white-space: nowrap; }
 .hud__lang { top: var(--gutter); right: var(--gutter); }
-.hud__center span, .hud__lang span { opacity: .5; }
+.hud__center span { opacity: .5; }
 .hud__clock { bottom: var(--gutter); left: var(--gutter); display: flex; align-items: center; gap: 12px; }
 .hud__clock > div { display: flex; flex-direction: column; line-height: 1.3; }
 .hud__time { font-family: var(--f-display); font-size: 26px; letter-spacing: .02em; }
@@ -462,3 +462,18 @@ html.js .scene--1, html.js .scene--2, html.js .scene--3 { visibility: hidden; }
 .fireflies, .petals { visibility: hidden; }
 .fireflies.is-on, .petals.is-on { visibility: visible; }
 .ticker.is-off .ticker__track { animation-play-state: paused; }
+
+/* Sélecteur de langue */
+.hud__lang { display: flex; align-items: center; gap: 6px; }
+.hud__lang i { font-style: normal; opacity: .35; }
+.hud__lang button { padding: 6px 2px; letter-spacing: inherit; text-transform: inherit; opacity: .5; border-bottom: 1px solid transparent; transition: opacity .3s; }
+.hud__lang button[lang="ja"] { font-family: var(--f-jp); letter-spacing: .05em; }
+.hud__lang button:hover, .hud__lang button:focus-visible { opacity: .85; }
+.hud__lang button[aria-pressed="true"] { opacity: 1; border-bottom-color: currentColor; }
+
+/* Bandeau de chapitre : le texte glisse en bloc dans un masque (l'ombre du bandeau reste visible) */
+.chapter__fr { clip-path: inset(0 -12px -8px 0); }
+
+/* Japonais : texte courant un peu plus aéré */
+html[lang="ja"] .chapter__txt, html[lang="ja"] .palette__lede { line-height: 1.9; letter-spacing: .04em; }
+html[lang="ja"] .manifesto__text { line-height: 1.15; max-width: 14em; }

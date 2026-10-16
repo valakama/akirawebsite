@@ -20,6 +20,107 @@
   gsap.registerPlugin(ScrollTrigger);
   window.scrollTo(0, 0);
 
+  /* ---------- Langues : français, anglais, japonais ---------- */
+
+  const I18N = {
+    fr: {
+      title: '密林 — Un jour dans la jungle',
+      description: "Une journée dans la jungle, de l'aube à la nuit. Expérience visuelle.",
+      langLabel: 'Langue',
+      tagline: 'Un jour dans la jungle',
+      loaderWarn: 'Zone restreinte · 07',
+      heroWarn: 'Zone 07 — Accès restreint',
+      heroSub: 'Une journée dans la jungle',
+      n0: 'Aube', n1: 'Midi', n2: 'Crépuscule', n3: 'Nuit',
+      t0: 'La brume se lève sur le bassin. Un flamant guette le premier rayon, les girafes sortent du rose.',
+      t1: "Le soleil tombe à pic. Les flamboyants s'embrasent, la canopée bourdonne, l'eau garde la fraîcheur.",
+      t2: "Contre-jour. Tout devient silhouette, l'étang avale le soleil et le renvoie en or.",
+      t3: "La lune prend le relais. Les lucioles s'allument une à une, les champignons respirent en bleu.",
+      s0: 'Brume', s1: 'Soleil', s2: 'Contre-jour', s3: 'Obscurité',
+      altAube: "La jungle à l'aube, un flamant rose dans la brume et des girafes au loin",
+      altMidi: "La jungle à midi, flamboyants rouges au-dessus d'un bassin de nénuphars",
+      altCrep: "La jungle au crépuscule, soleil couchant sur l'étang, flamants roses et girafes en contre-jour",
+      altNuit: 'La jungle la nuit, pleine lune, lucioles et champignons lumineux',
+      tickBlack: '警告 ・ Zone restreinte ・ 密林 ・ Projet Jungle ・ 第07区 ・ ',
+      tickRed: '密林 ・ Mitsurin ・ ジャングル ・ Un jour dans la jungle ・ 夜明けから夜まで ・ ',
+      manifestoLabel: 'Manifeste',
+      manifesto: "La jungle ne dort jamais. Elle change seulement de <em>couleur</em> — du rose de l'aube au bleu des lucioles, en passant par le <em>feu</em> de midi et l'or du soir.",
+      paletteTitle: 'Quatre couleurs',
+      paletteLede: 'Quatre lumières, une seule jungle. Survole pour ouvrir.',
+      outroLabel: 'Fin de la journée',
+      outroSub: 'Bonne nuit',
+      again: 'Recommencer',
+      tickOutro: 'おやすみ ・ Bonne nuit ・ 密林 ・ 終わり ・ Fin ・ ',
+    },
+    en: {
+      title: '密林 — A day in the jungle',
+      description: 'A day in the jungle, from dawn to night. A visual experience.',
+      langLabel: 'Language',
+      tagline: 'A day in the jungle',
+      loaderWarn: 'Restricted zone · 07',
+      heroWarn: 'Zone 07 — Restricted access',
+      heroSub: 'A day in the jungle',
+      n0: 'Dawn', n1: 'Noon', n2: 'Dusk', n3: 'Night',
+      t0: 'Mist rises over the pond. A flamingo waits for the first ray, the giraffes step out of the pink.',
+      t1: 'The sun beats straight down. The flame trees catch fire, the canopy hums, the water keeps its cool.',
+      t2: 'Backlight. Everything turns to silhouette; the pond swallows the sun and gives it back as gold.',
+      t3: 'The moon takes over. Fireflies light up one by one, the mushrooms breathe in blue.',
+      s0: 'Mist', s1: 'Sun', s2: 'Backlight', s3: 'Darkness',
+      altAube: 'The jungle at dawn, a flamingo in the mist and giraffes in the distance',
+      altMidi: 'The jungle at noon, red flame trees above a lily pond',
+      altCrep: 'The jungle at dusk, the sun setting over the pond, flamingos and giraffes against the light',
+      altNuit: 'The jungle at night, full moon, fireflies and glowing mushrooms',
+      tickBlack: '警告 ・ Restricted zone ・ 密林 ・ Project Jungle ・ 第07区 ・ ',
+      tickRed: '密林 ・ Mitsurin ・ ジャングル ・ A day in the jungle ・ 夜明けから夜まで ・ ',
+      manifestoLabel: 'Manifesto',
+      manifesto: 'The jungle never sleeps. It only changes <em>colour</em> — from the pink of dawn to the blue of fireflies, through the <em>fire</em> of noon and the gold of evening.',
+      paletteTitle: 'Four colours',
+      paletteLede: 'Four lights, one jungle. Hover to open.',
+      outroLabel: 'End of the day',
+      outroSub: 'Good night',
+      again: 'Start over',
+      tickOutro: 'おやすみ ・ Good night ・ 密林 ・ 終わり ・ The end ・ ',
+    },
+    ja: {
+      title: '密林 — ジャングルの一日',
+      description: '夜明けから夜まで、ジャングルの一日。ビジュアル体験。',
+      langLabel: '言語',
+      tagline: 'ジャングルの一日',
+      loaderWarn: '制限区域 · 07',
+      heroWarn: '第07区 — 立入制限',
+      heroSub: 'ジャングルの一日',
+      n0: 'Yoake', n1: 'Mahiru', n2: 'Tasogare', n3: 'Yoru',
+      t0: '池の上に霧が立ちのぼる。フラミンゴが最初の光を待ち、キリンたちが薄紅の中から現れる。',
+      t1: '真上から太陽が照りつける。火炎樹が燃え上がり、樹冠はざわめき、水は涼しさを保つ。',
+      t2: '逆光。すべてが影絵になり、池は太陽を飲み込んで金色に返す。',
+      t3: '月があとを継ぐ。蛍がひとつ、またひとつと灯り、キノコが青く息づく。',
+      s0: '', s1: '', s2: '', s3: '',
+      altAube: '夜明けのジャングル。霧の中のフラミンゴと遠くのキリン',
+      altMidi: '真昼のジャングル。睡蓮の池の上に赤い火炎樹',
+      altCrep: '黄昏のジャングル。池に沈む夕日、逆光のフラミンゴとキリン',
+      altNuit: '夜のジャングル。満月、蛍、光るキノコ',
+      tickBlack: '警告 ・ 制限区域 ・ 密林 ・ ジャングル計画 ・ 第07区 ・ ',
+      tickRed: '密林 ・ Mitsurin ・ ジャングル ・ ジャングルの一日 ・ 夜明けから夜まで ・ ',
+      manifestoLabel: '宣言',
+      manifesto: 'ジャングルは眠らない。ただ<em>色</em>を変えるだけ — 夜明けの薄紅から蛍の青へ、真昼の<em>炎</em>と夕べの金を経て。',
+      paletteTitle: 'Yottsu no iro',
+      paletteLede: '四つの光、ひとつのジャングル。カーソルを合わせて開く。',
+      outroLabel: '一日の終わり',
+      outroSub: 'Oyasumi nasai',
+      again: '最初から',
+      tickOutro: 'おやすみ ・ Oyasumi ・ 密林 ・ 終わり ・ Owari ・ ',
+    },
+  };
+  const JP_NAMES = ['夜明け', '真昼', '黄昏', '夜'];
+  const JP_STATUS = ['霧', '晴', '夕焼', '闇'];
+
+  let lang = (() => {
+    try { const saved = localStorage.getItem('lang'); if (I18N[saved]) return saved; } catch (e) {}
+    const nav = (navigator.language || 'fr').slice(0, 2).toLowerCase();
+    return I18N[nav] ? nav : 'fr';
+  })();
+  const tr = (key) => I18N[lang][key] ?? I18N.fr[key];
+
   /* ---------- Utilitaires ---------- */
 
   // Découpe un texte en caractères masqués : <span class="ch"><span>c</span></span>
@@ -33,12 +134,12 @@
   }
 
   // Découpe en mots en conservant les balises inline (<em>)
-  function splitWords(el) {
+  function splitWords(el, perChar = false) {
     const walk = (node) => {
       [...node.childNodes].forEach((n) => {
         if (n.nodeType === 3) {
           const frag = document.createDocumentFragment();
-          n.textContent.split(/(\s+)/).forEach((part) => {
+          (perChar ? [...n.textContent] : n.textContent.split(/(\s+)/)).forEach((part) => {
             if (!part) return;
             if (/^\s+$/.test(part)) frag.append(part);
             else {
@@ -80,7 +181,7 @@
   const sceneImgs = scenes.map((s) => $('img', s));
   const chapters = $$('.chapter');
   const accents = ['#f4a6a0', '#ff4a2b', '#ff8a3d', '#5ff2d6'];
-  const names = ['夜明け — Aube', '真昼 — Midi', '黄昏 — Crépuscule', '夜 — Nuit'];
+  const chapterName = (i) => (lang === 'ja' ? JP_NAMES[i] : `${JP_NAMES[i]} — ${tr('n' + i)}`);
 
   // Calques de premier plan : ordre haut, gauche, droite, bas
   const fxLayers = ['.fx__top', '.fx__left', '.fx__right', '.fx__bottom'].map((q) => $(q));
@@ -98,7 +199,7 @@
   const heroBits = ['.hero__warn', '.hero__sub', '.hero__tag', '.hero__scroll'];
   const chapterParts = chapters.map((c) => ({
     jp: splitChars($('.chapter__jp', c)),
-    fr: splitChars($('.chapter__fr-t', c)),
+    fr: [$('.chapter__fr-t', c)],
     band: $('.chapter__fr', c),
     rest: [$('.chapter__time', c), $('.chapter__txt', c)],
   }));
@@ -280,15 +381,13 @@
   const humEl = $('.hud__hum');
   const statusEl = $('.hud__status');
   const rail = $('.hud__rail');
-  const climate = [
-    [24, 96, '状態 — 霧 Brume'],
-    [33, 72, '状態 — 晴 Soleil'],
-    [29, 80, '状態 — 夕焼 Contre-jour'],
-    [22, 93, '状態 — 闇 Obscurité'],
-  ];
+  const climate = [[24, 96], [33, 72], [29, 80], [22, 93]];
+  const statusText = (i) => `状態 — ${JP_STATUS[i]} ${tr('s' + i)}`.trim();
   let lastChap = -2;
 
+  let lastP = 0;
   function updateHud(p) {
+    lastP = p;
     const m = minutesAt(p);
     const hh = String(Math.floor(m / 60)).padStart(2, '0');
     const mm = String(Math.floor(m % 60)).padStart(2, '0');
@@ -306,9 +405,9 @@
     if (c !== lastChap) {
       lastChap = c;
       numEl.textContent = String(c + 1).padStart(2, '0');
-      chapEl.textContent = names[Math.max(c, 0)];
-      const [temp, hum, status] = climate[Math.max(c, 0)];
-      tempEl.textContent = temp; humEl.textContent = hum; statusEl.textContent = status;
+      chapEl.textContent = chapterName(Math.max(c, 0));
+      const [temp, hum] = climate[Math.max(c, 0)];
+      tempEl.textContent = temp; humEl.textContent = hum; statusEl.textContent = statusText(Math.max(c, 0));
     }
     fireflies.active = t > settled[3] - 1.2;
     // Pétales : montent pendant l'arrivée de midi, disparaissent avant le crépuscule
@@ -493,11 +592,15 @@
 
   /* ---------- Manifeste ---------- */
 
-  const words = splitWords($('.manifesto__text'));
-  gsap.fromTo(words, { opacity: 0.12 }, {
-    opacity: 1, stagger: 0.1, ease: 'none',
-    scrollTrigger: { trigger: '.manifesto__text', start: 'top 80%', end: 'bottom 50%', scrub: true },
-  });
+  let manifestoTween = null;
+  function buildManifesto() {
+    if (manifestoTween) { manifestoTween.scrollTrigger?.kill(); manifestoTween.kill(); }
+    const words = splitWords($('.manifesto__text'), lang === 'ja');
+    manifestoTween = gsap.fromTo(words, { opacity: 0.12 }, {
+      opacity: 1, stagger: 0.1, ease: 'none',
+      scrollTrigger: { trigger: '.manifesto__text', start: 'top 80%', end: 'bottom 50%', scrub: true },
+    });
+  }
   gsap.from('.manifesto .label', {
     autoAlpha: 0, y: 20, duration: 1, ease: 'expo.out',
     scrollTrigger: { trigger: '.manifesto', start: 'top 75%' },
@@ -542,6 +645,31 @@
     if (lenis) lenis.scrollTo(0, { duration: 3.2, easing: (t) => 1 - Math.pow(1 - t, 4) });
     else window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
   });
+  /* ---------- Changement de langue ---------- */
+
+  function applyLang(next) {
+    lang = I18N[next] ? next : 'fr';
+    root.lang = lang;
+    document.title = tr('title');
+    $('meta[name="description"]')?.setAttribute('content', tr('description'));
+    $$('[data-i18n]').forEach((el) => { el.textContent = tr(el.dataset.i18n); });
+    $$('[data-i18n-html]').forEach((el) => { el.innerHTML = tr(el.dataset.i18nHtml); });
+    $$('[data-i18n-alt]').forEach((el) => { el.alt = tr(el.dataset.i18nAlt); });
+    $$('[data-i18n-aria]').forEach((el) => { el.setAttribute('aria-label', tr(el.dataset.i18nAria)); });
+    $('.hud__lang').setAttribute('aria-label', tr('langLabel'));
+    $$('.hud__lang button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+    buildManifesto();
+    lastChap = -2; updateHud(lastP);       // nom du chapitre et état du ciel dans la nouvelle langue
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+  }
+
+  $$('.hud__lang button').forEach((b) => b.addEventListener('click', () => {
+    if (b.dataset.lang === lang) return;
+    applyLang(b.dataset.lang);
+    ScrollTrigger.refresh();               // les textes ont changé de longueur
+  }));
+  applyLang(lang);
+
   $('.hud__logo').addEventListener('click', (e) => {
     e.preventDefault();
     lenis ? lenis.scrollTo(0, { duration: 2.4 }) : window.scrollTo(0, 0);
